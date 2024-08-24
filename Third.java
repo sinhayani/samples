@@ -16,7 +16,33 @@ N is an integer within the range [1..100,000];
 string letters is made only of letters (a−z and/or A−Z).
  */
 
-public class Third {
-    
-    
+ public class Third {
+    public static void main(String[] args) {
+        String str = "xxXx";
+
+        char charArray[] = str.toCharArray();
+        int count = 0;
+        for (int i = 0; i < charArray.length; i++) {
+
+            String strChar = String.valueOf(charArray[i]);
+
+            boolean isUppercaseChar = Character.isUpperCase(charArray[i]);
+
+
+            if(isUppercaseChar) {
+                System.out.println("in if");
+
+                char smallercaseChar = Character.toLowerCase(charArray[i]);
+                String subString = str.substring(i, str.length());
+                System.out.println("substring " + subString);
+                if(!subString.contains(Character.toString(smallercaseChar))){
+                    count++;
+                }
+            }
+        }
+
+        System.out.println("Answer :" + count);
+    }
+
 }
+
